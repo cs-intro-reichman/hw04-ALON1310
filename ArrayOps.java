@@ -38,7 +38,7 @@ public class ArrayOps {
             big = temp;
         }
         for (int i = 2; i < n; i++) {
-            if (array[i] >= big) {
+            if (array[i] > big) {
                 second = big;
                 big = array[i];
             } else if (array[i] > second && array[i] < big) {
