@@ -71,10 +71,12 @@ public class StringOps {
                 if(!space){
                     if(currentChar<='z' && currentChar>='a'){
                         master+=currentChar;
+                        first = false ;
                     } else if (currentChar<='Z' && currentChar>='A'){
                         master += lowerCase(currentChar);
+                        first=false;
                     }
-                    first = false ;
+
 
                 }
                 else if (space){
@@ -83,14 +85,14 @@ public class StringOps {
                             master+=currentChar;
                             first = false;
                         }
-                        else if(!first){
+                        else {
                             master += upperCase(currentChar);
                         }
-                    } if (currentChar<='Z' && currentChar>='A') {
+                    } else if (currentChar<='Z' && currentChar>='A') {
                         if(first){
                             master+=lowerCase(currentChar);
                             first = false;
-                        }else if(!first) {
+                        }else {
                             master+=currentChar;
                         }
 
@@ -101,6 +103,7 @@ public class StringOps {
             }
             else if(currentChar==' '){
                 space = true;
+
             }
 
         }
