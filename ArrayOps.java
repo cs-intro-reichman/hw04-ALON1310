@@ -30,26 +30,25 @@ public class ArrayOps {
         int n = array.length ;
 
         if(n<2) return -1;
+        int big = array[1] ;
+        int second = array[0] ;
 
-        int biggest = array[1];
-        int second = array[0];
-
-        if (biggest < second) {
-            int temp = biggest;
-            biggest = second;
-            second = temp;
+        if (second>big){
+            int temp = second ;
+            second = big ;
+            big = temp;
         }
 
-        for (int i = 2; i < n; i++) {
-            if (array[i] > biggest) {
-                second = biggest;
-                biggest = array[i];
-            } else if (array[i] > second && array[i] != biggest) {
+        for(int i = 0 ; i < n ; i++){
+            if (array[i] > big) {
+                second = big;
+                big = array[i];
+            } else if (array[i] > second && array[i] < big) {
                 second = array[i];
             }
         }
 
-        return second;
+        return (second == big) ? -1 : second;
     }
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
