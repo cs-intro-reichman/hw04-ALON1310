@@ -31,16 +31,22 @@ public class ArrayOps {
 
         if(n<2) return -1;
 
-        int biggest = array[0];
-        int second = array[1];
+        int biggest = array[1];
+        int second = array[0];
 
-        for (int i = 0 ; i < n ; i ++) {
+        if (biggest < second) {
+            int temp = biggest;
+            biggest = second;
+            second = temp;
+        }
 
-            if (biggest < array[i]){
+        for (int i = 2; i < n; i++) {
+            if (array[i] > biggest) {
                 second = biggest;
                 biggest = array[i];
-           }
-             else if (second<array[i] && array[i]!=biggest) second = array[i] ;
+            } else if (array[i] > second && array[i] != biggest) {
+                second = array[i];
+            }
         }
 
         return second;
@@ -50,28 +56,27 @@ public class ArrayOps {
         // Write your code here:
 
         for (int i = 0; i < array1.length; i++) {
-            boolean found = false;
+            boolean found1 = false;
             for (int j = 0; j < array2.length; j++) {
                 if (array1[i] == array2[j]) {
-                    found = true;
+                    found1 = true;
                     break;
                 }
             }
-            if (!found) {
+            if (!found1) {
                 return false;
             }
         }
 
-
         for (int i = 0; i < array2.length; i++) {
-            boolean found = false;
+            boolean found2 = false;
             for (int j = 0; j < array1.length; j++) {
                 if (array2[i] == array1[j]) {
-                    found = true;
+                    found2 = true;
                     break;
                 }
             }
-            if (!found) {
+            if (!found2) {
                 return false;
             }
         }
