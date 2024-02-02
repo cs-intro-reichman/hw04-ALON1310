@@ -41,7 +41,7 @@ public class ArrayOps {
             if (array[i] > big) {
                 second = big;
                 big = array[i];
-            } else if (array[i] > second && array[i] < big) {
+            } else if (array[i] > second && array[i] <= big) {
                 second = array[i];
             }
         }
