@@ -32,15 +32,13 @@ public class ArrayOps {
         if(n<2) return -1;
         int big = array[1] ;
         int second = array[0] ;
-
-        if (second>big){
-            int temp = second ;
-            second = big ;
+        if (second>=big){
+            int temp = second;
+            second = big;
             big = temp;
         }
-
-        for(int i = 0 ; i < n ; i++){
-            if (array[i] > big) {
+        for (int i = 2; i < n; i++) {
+            if (array[i] >= big) {
                 second = big;
                 big = array[i];
             } else if (array[i] > second && array[i] < big) {
@@ -48,7 +46,8 @@ public class ArrayOps {
             }
         }
 
-        return (second == big) ? -1 : second;
+        return second;
+
     }
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
