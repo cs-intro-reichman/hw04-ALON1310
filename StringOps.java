@@ -22,21 +22,115 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
+
+
+
+    }
+    public static char upperCase (char ch){
+        if(ch>='a'&& ch<='z') {
+            return (char) (ch - 32);
+        }
+        return ch;
+    }
+    public static char lowerCase (char ch){
+        if(ch>='A'&& ch<='Z') {
+            return  (char)(ch + 32);
+        }
+        return ch;
     }
 
     public static String capVowelsLowRest (String string) {
         // Write your code here:
-        return "";
+        String s = "aeiou";
+        String master = "";
+
+        for (int i = 0; i < string.length(); i++) {
+            if (s.indexOf(string.charAt(i)) != -1 || s.indexOf(string.charAt(i) + 32) != -1) {
+                master += upperCase(string.charAt(i));
+            } else {
+                master += lowerCase(string.charAt(i));
+            }
+
+
+        }
+        return master;
     }
+
 
     public static String camelCase (String string) {
         // Write your code here:
-        return "";
+        String master = "";
+        boolean space = false;
+        boolean first = true;
+
+        for (int i = 0; i < string.length(); i++) {
+
+            char currentChar = string.charAt(i);
+
+            if (currentChar != ' ' ) {
+                if(!space){
+                    if(currentChar<='z' && currentChar>='a'){
+                        master+=currentChar;
+                    } else if (currentChar<='Z' && currentChar>='A'){
+                        master += lowerCase(currentChar);
+                    }
+                    space = false ;
+
+                }
+                else if (space){
+                    if(currentChar <= 'z' && currentChar >= 'a'){
+                        if(first){
+                            master+=currentChar;
+                            first = false;
+                        }
+                        else if(!first){
+                            master += upperCase(currentChar);
+                        }
+                    } else if (currentChar<='Z' && currentChar>='A') {
+                        if(first){
+                            master+=lowerCase(currentChar);
+                            first = false;
+                        }else if(!first) {
+                            master+=currentChar;
+                        }
+
+                    }
+                    space = false;
+                }
+
+            }
+            else if(currentChar==' '){
+                space = true;
+            }
+
+        }
+
+        return master;
     }
+
+
 
     public static int[] allIndexOf (String string, char chr) {
         // Write your code here:
-        return new int[1];
+        int count = 0 ;
+        int place = 0 ;
+
+
+        for (int i =0 ; i < string.length();i++){
+
+            if (chr == string.charAt(i)) count ++;
+
+        }
+
+
+        int [] array = new int[count];
+
+
+        for (int t = 0 ; t<string.length();t++){
+            if (string.charAt(t) == chr) array[place++]= t;
+
+        }
+
+        return array;
     }
 }
