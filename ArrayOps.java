@@ -32,7 +32,7 @@ public class ArrayOps {
         if(n<2) return -1;
 
         int biggest = array[0];
-        int second = array[0];
+        int second = array[1];
 
         for (int i = 0 ; i < n ; i ++) {
 
